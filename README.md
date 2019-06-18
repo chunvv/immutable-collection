@@ -8,16 +8,19 @@ Classes should be immutable unless there's a very good reason to make them mutab
 ### ImmutableStack
 - Supports methods:
 ```java
+package com.cozy.collection.stack;
+
 public interface Stack<T> {
 
     public Stack<T> push(T t);
 
     public Stack<T> pop() throws Exception;
 
-    public T top() throws Exception;
+    public T head() throws Exception;
 
     public boolean isEmpty();
 }
+
 ```
 - Test by using ImmutableStack:
 ```java
@@ -38,6 +41,8 @@ public interface Stack<T> {
 ### ImmutableQueue
 - Supports methods:
 ```java
+package com.cozy.collection.queue;
+
 public interface Queue<T> {
 
     public Queue<T> enQueue(T t);
@@ -48,6 +53,7 @@ public interface Queue<T> {
 
     public boolean isEmpty();
 }
+
 
 ```
 - Test by using ImmutableQueue:
