@@ -24,18 +24,35 @@ public interface Stack<T> {
 ```
 - Test by using ImmutableStack:
 ```java
+package com.cozy.collection.stack;
+
+import org.hamcrest.core.Is;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class ImmutableStackTest {
+
+    @Test
+    public void createNewEmptyStack() {
+        Stack emptyStack = ImmutableStack.initEmptyStack();
+        assertTrue(emptyStack.isEmpty());
+    }
+
     @Test
     public void createNewImmutableStack() throws Exception {
-        Stack emptyStack = ImmutableStack.getEmptyStack();
+        Stack emptyStack = ImmutableStack.initEmptyStack();
         Stack immutableStack = emptyStack.push(5);
         immutableStack = immutableStack.push(2);
 
-        assertThat(immutableStack.top(), Is.is(2));
+        assertThat(immutableStack.head(), Is.is(2));
         immutableStack = immutableStack.pop();
-        assertThat(immutableStack.top(), Is.is(5));
+        assertThat(immutableStack.head(), Is.is(5));
         immutableStack = immutableStack.pop();
         assertTrue(immutableStack.isEmpty());
     }
+}
+
 ```
 
 ### ImmutableQueue
@@ -58,6 +75,21 @@ public interface Queue<T> {
 ```
 - Test by using ImmutableQueue:
 ```java
+package com.cozy.collection.queue;
+
+import org.hamcrest.core.Is;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class ImmutableQueueTest {
+
+    @Test
+    public void createNewEmptyQueue() {
+        Queue emptyQueue = ImmutableQueue.getEmptyQueue();
+        assertTrue(emptyQueue.isEmpty());
+    }
+
     @Test
     public void createNewImmutableQueue() throws Exception {
         Queue emptyQueue = ImmutableQueue.getEmptyQueue();
@@ -70,4 +102,6 @@ public interface Queue<T> {
         immutableQueue = immutableQueue.deQueue();
         assertTrue(immutableQueue.isEmpty());
     }
+}
+
 ```
