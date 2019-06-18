@@ -21,10 +21,10 @@ public class ImmutableQueue<T> implements Queue<T>, Reversible<Stack> {
 
     @Override
     public Queue<T> deQueue() throws Exception {
-        Stack<T> f = inGoing.pop();
+        Stack<T> stack = inGoing.pop();
 
-        if (!f.isEmpty()) {
-            return new ImmutableQueue<T>(f, outGoing);
+        if (!stack.isEmpty()) {
+            return new ImmutableQueue<T>(stack, outGoing);
         } else if (outGoing.isEmpty()) {
             return ImmutableQueue.getEmptyQueue();
         } else {
@@ -48,12 +48,12 @@ public class ImmutableQueue<T> implements Queue<T>, Reversible<Stack> {
 
     @Override
     public Stack reverse(Stack stack) throws Exception {
-        Stack r = ImmutableStack.initEmptyStack();
+        Stack reversedStack = ImmutableStack.initEmptyStack();
         while (!stack.isEmpty()) {
-            r = r.push(stack.head());
+            reversedStack = reversedStack.push(stack.head());
             stack = stack.pop();
         }
 
-        return r;
+        return reversedStack;
     }
 }
