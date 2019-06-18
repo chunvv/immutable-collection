@@ -6,7 +6,7 @@ public interface Stack<T> {
 
     public Stack<T> pop() throws Exception;
 
-    public T top() throws Exception;
+    public T head() throws Exception;
 
     public boolean isEmpty();
 }
